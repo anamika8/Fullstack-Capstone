@@ -1,0 +1,28 @@
+{
+  "name": "my-mommy-talks-app",
+  "version": "0.0.1",
+  "description": "My Mommy Talks app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3",
+    "morgan": "^1.9.1",
+    "uuid": "^3.2.1",
+    "extend": ">=3.0.2"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "mocha": "^5.2.0",
+    "extend": ">=3.0.2"
+  }
+}
