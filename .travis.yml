@@ -1,5 +1,11 @@
-
 language: node_js
 node_js: node
 services:
 - mongodb
+deploy:
+  provider: heroku
+  api_key:
+    secure: cwP0ZKqCma4nGH9fByhVw+A4UODTNFEXGS3N8t0RceKDbeZoleGW0cjiVFnXYsj9rLQFtrfVTd+FomwKNWfGSPp7z0Y1XXumIl35MeOURu4yDFxsGQXC30lE+c3n850P0mZtE/cjSOJXTEYWYog9FBWb4xqiawpiY6JNRGd6Ez32x1Xdz5b+CKNTAeeHVN12zug9ExtVfQ++Zw814vtsvV7h7akFUl4GPoCNmfYDwL7mu4jDTHVXkcENjQd4H8ZmvmfdrJ3o9U388ncaOQEL6ZNN0LjWHI/hGKy39JmB+Yi4DNZQggj/NlBq1DL6TK2a/V/YzvG+9tzIKIGx5/s3h6p195F+Wv86se92ZnfXrGoxpgNftGq24/hQQeVmCbHhC+B/ClZqGaDQzS81bIQnKWo9r3MNxhdvdl5xWiWflEaP3Hqh7lQgIglEm+39NpoGgFkQwF1vD+x2lzWHZhDUTxObq/Wq3a4H7ZFnjf6KSV8N/TV5MBQkVWhJlUGQhjT+aA6K4x6ybEMLNRiOcbjkETWZJr6gw+IxUkMJ0SI+xyYzhXW/5THY5XOunziXw5vdcEeQkY0nxqKP4WEKMnWJmGGHDDZacO8ZdRJjqsTOqFsP6P6uZYOcQLNBH0tR72e1A3Tu82qyhC329pdxXWWPsTasJWNFib5IFGf7OKXRsuI=
+  app: mommy-talks-app
+  on:
+    repo: anamika8/Fullstack-Capstone
