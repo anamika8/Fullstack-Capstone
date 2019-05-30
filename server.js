@@ -6,11 +6,15 @@ const morgan = require('morgan');
 const passport = require('passport');
 
 
+const { router: usersRouter } = require('./users');
+const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
 // Mongoose internally uses a promise-like object,
 // but its better to make Mongoose use built in es6 promises
 mongoose.Promise = global.Promise;
 
 const { PORT, DATABASE_URL } = require("./config");
+const app = express();
+//// log the http layer
 app.use(express.static('public'));
 
 // Logging
