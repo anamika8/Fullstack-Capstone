@@ -49,16 +49,16 @@ describe('Protected endpoint', function () {
       return chai
         .request(app)
         .get('/api/protected')
-        .then(() =>
-          expect.fail(null, null, 'Request should not succeed')
-        )
+        .then(res => {
+          //expect.fail(null, null, 'Request should not succeed')
+          expect(res).to.have.status(401);
+        })
         .catch(err => {
           if (err instanceof chai.AssertionError) {
             throw err;
           }
-
           const res = err.response;
-          expect(res).to.have.status(401);
+
         });
     });
 
@@ -80,16 +80,16 @@ describe('Protected endpoint', function () {
         .request(app)
         .get('/api/protected')
         .set('Authorization', `Bearer ${token}`)
-        .then(() =>
-          expect.fail(null, null, 'Request should not succeed')
-        )
+        .then(res => {
+          //expect.fail(null, null, 'Request should not succeed')
+          expect(res).to.have.status(401);
+        })
         .catch(err => {
           if (err instanceof chai.AssertionError) {
             throw err;
           }
 
           const res = err.response;
-          expect(res).to.have.status(401);
         });
     });
     it('Should reject requests with an expired token', function () {
@@ -113,16 +113,16 @@ describe('Protected endpoint', function () {
         .request(app)
         .get('/api/protected')
         .set('authorization', `Bearer ${token}`)
-        .then(() =>
-          expect.fail(null, null, 'Request should not succeed')
-        )
+        .then(res => {
+          //expect.fail(null, null, 'Request should not succeed')
+          expect(res).to.have.status(401);
+        })
         .catch(err => {
           if (err instanceof chai.AssertionError) {
             throw err;
           }
-
           const res = err.response;
-          expect(res).to.have.status(401);
+
         });
     });
     it('Should send protected data', function () {
