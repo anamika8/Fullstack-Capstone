@@ -1,6 +1,6 @@
 {
   "name": "mommy-talks-app",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "My Mommy Talks app",
   "main": "server.js",
   "scripts": {
@@ -18,12 +18,20 @@
     "morgan": "^1.9.1",
     "uuid": "^3.2.1",
     "mongoose": "^5.0.13",
-    "extend": ">=3.0.2"
+    "extend": ">=3.0.2",
+    "bcryptjs": "^2.4.0",
+    "body-parser": "^1.15.2",
+    "dotenv": "^4.0.0",
+    "jsonwebtoken": "^8.2.0",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "chai": "^4.1.2",
     "chai-http": "^4.0.0",
     "mocha": "^5.2.0",
+    "faker": "^3.1.0",
     "extend": ">=3.0.2"
   }
 }
