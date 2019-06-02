@@ -352,7 +352,7 @@ describe('/api/user', function () {
             expect(res).to.have.status(422);
             expect(res.body.reason).to.equal('ValidationError');
             expect(res.body.message).to.equal(
-              'Username already taken'
+              'email already used'
             );
             expect(res.body.location).to.equal('email');
           })
