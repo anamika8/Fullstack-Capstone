@@ -92,7 +92,7 @@ router.post('/', jsonParser, (req, res) => {
     });
   }
 
-  let { email, password, lastLogin, firstName = '', lastName = '' } = req.body;
+  let { email, password, firstName = '', lastName = '' } = req.body;
   // Username and password come in pre-trimmed, otherwise we throw an error
   // before this
   firstName = firstName.trim();
@@ -118,8 +118,7 @@ router.post('/', jsonParser, (req, res) => {
         email,
         password: hash,
         firstName,
-        lastName,
-        lastLogin
+        lastName
       });
     })
     .then(user => {
