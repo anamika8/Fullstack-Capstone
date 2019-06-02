@@ -15,7 +15,11 @@ const UserSchema = mongoose.Schema({
     required: true
   },
   firstName: { type: String, default: '' },
-  lastName: { type: String, default: '' }
+  lastName: { type: String, default: '' },
+  lastLogin: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 UserSchema.methods.serialize = function () {
