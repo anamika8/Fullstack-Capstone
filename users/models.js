@@ -8,7 +8,14 @@ const UserSchema = mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
+    validate: {
+      validator: function (input) {
+        var emailVal = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        return emailVal.test(input);
+      },
+      message: 'Please fill a valid email address'
+    }
   },
   password: {
     type: String,
