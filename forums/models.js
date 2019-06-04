@@ -1,7 +1,8 @@
 "use strict";
 
 const mongoose = require("mongoose");
-const { UserSchema } = require("../users/models");
+//const { UserSchema } = require("../users/models");
+const { User } = require('../users/models');
 
 const commentSchema = mongoose.Schema({ content: 'string' });
 
@@ -12,8 +13,6 @@ const forumSchema = mongoose.Schema({
     posted: { type: Date, default: Date.now },
     comments: [commentSchema]
 });
-
-
 
 
 forumSchema.pre('find', function (next) {
@@ -43,7 +42,7 @@ forumSchema.methods.serialize = function () {
 // schema must be defined *before* we make the call to `.model`.
 //const Post = mongoose.model("Post", blogSchema);
 
-const User = mongoose.model('User', UserSchema);
+//const User = mongoose.model('User', UserSchema);
 const Forum = mongoose.model('Forum', forumSchema);
 
-module.exports = { User, Forum };
+module.exports = { Forum };
