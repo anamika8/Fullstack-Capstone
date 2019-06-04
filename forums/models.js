@@ -3,6 +3,8 @@
 const mongoose = require("mongoose");
 const { UserSchema } = require("../users/models");
 
+const commentSchema = mongoose.Schema({ content: 'string' });
+
 const forumSchema = mongoose.Schema({
     title: 'string',
     content: 'string',
@@ -12,7 +14,7 @@ const forumSchema = mongoose.Schema({
 });
 
 
-const commentSchema = mongoose.Schema({ content: 'string' });
+
 
 forumSchema.pre('find', function (next) {
     this.populate('user');
@@ -29,21 +31,13 @@ forumSchema.methods.serialize = function () {
         id: this._id,
         title: this.title,
         content: this.content,
-        user: this.user,
+        user: this.user.firstName + " " + this.user.lastName,
         posted: this.created,
         comments: this.comments
     };
 };
 
-// this is an *instance method* which will be available on all instances
-// of the model. This method will be used to return an object that only
-// exposes *some* of the fields we want from the underlying data
-UserSchema.methods.serialize = function () {
-    return {
-        id: this._id,
-        name: this.firstName + " " + this.lastName
-    };
-};
+
 
 // note that all instance methods and virtual properties on our
 // schema must be defined *before* we make the call to `.model`.
