@@ -1,8 +1,7 @@
 "use strict";
 
 const mongoose = require("mongoose");
-//const { UserSchema } = require("../users/models");
-const { User } = require('../users/models');
+
 
 const commentSchema = mongoose.Schema({ content: 'string' });
 
@@ -36,13 +35,6 @@ forumSchema.methods.serialize = function () {
     };
 };
 
-
-
-// note that all instance methods and virtual properties on our
-// schema must be defined *before* we make the call to `.model`.
-//const Post = mongoose.model("Post", blogSchema);
-
-//const User = mongoose.model('User', UserSchema);
 const Forum = mongoose.model('Forum', forumSchema);
 
 module.exports = { Forum };
