@@ -18,9 +18,9 @@ router.use(bodyParser.json());
 
 router.get("/", (req, res) => {
     Forum.find()
-        .then(res => {
+        .then(forums => {
             res.json({
-                res: res.map(forum => forum.serialize())
+                forums: forums.map(forum => forum.serialize())
             });
         })
         .catch(err => {
@@ -97,11 +97,13 @@ router.put("/:id", (req, res) => {
         }
     });
 
+    toUpdate.updated = Date.now();
+
     Forum
         // all key/value pairs in toUpdate will be updated -- that's what `$set` does
         .findByIdAndUpdate(req.params.id, { $set: toUpdate }, { new: true })
-        .then(updatedForum => res.status(200).json(updatedForum.serialize()))
-        .catch(err => res.status(500).json({ message: "Internal server error" }));
+        .then(updatedForum => res.status(200).json(toUpdate))
+        .catch(err => res.status(500).json({ message: "Internal server error: " + err.message }));
 });
 
 router.delete("/:id", (req, res) => {

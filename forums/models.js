@@ -10,6 +10,7 @@ const forumSchema = mongoose.Schema({
     content: 'string',
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     posted: { type: Date, default: Date.now },
+    updated: { type: Date },
     comments: [commentSchema]
 });
 
@@ -30,7 +31,8 @@ forumSchema.methods.serialize = function () {
         title: this.title,
         content: this.content,
         user: this.user.firstName + " " + this.user.lastName,
-        posted: this.created,
+        posted: this.posted,
+        updated: this.updated,
         comments: this.comments
     };
 };
