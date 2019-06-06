@@ -3,6 +3,8 @@ const express = require('express');
 const passport = require('passport');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
+// Step 1 - impor the user model
+const { User } = require('../users');
 
 const config = require('../config');
 const router = express.Router();
@@ -20,6 +22,15 @@ router.use(bodyParser.json());
 // The user provides a email and password to login
 router.post('/login', localAuth, (req, res) => {
   const authToken = createAuthToken(req.user.serialize());
+  // step 2 - find ethe user based on req.user
+
+  User.findOne({ _id: req.user._id })
+    .then(user => {
+      user.lastLogin = Date.now();
+      user.save();
+    })
+    .catch(e => console.error(e));
+
   res.json({ authToken });
 });
 
