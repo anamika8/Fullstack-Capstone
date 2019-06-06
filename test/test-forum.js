@@ -155,7 +155,7 @@ describe('Forum endpoints', function () {
                 user: newUser.email
             };
 
-            console.log(newForum);
+            //console.log(newForum);
             return chai.request(app)
                 .post('/api/forums')
                 .send(newForum)
