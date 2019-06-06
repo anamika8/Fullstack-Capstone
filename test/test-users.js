@@ -52,10 +52,10 @@ describe('/api/user', function () {
           .then(res => {
             //console.log(res);
             //expect.fail(null, null, 'Request should not succeed')
-            console.log('status', res.status);
+            /*console.log('status', res.status);
             console.log('reason', res.body.reason);
             console.log('message', res.body.message);
-            console.log('location', res.body.location);
+            console.log('location', res.body.location);*/
             expect(res).to.have.status(422);
             expect(res.body.reason).to.equal('ValidationError');
             expect(res.body.message).to.equal('Missing field');
