@@ -136,6 +136,52 @@ describe('Forum endpoints', function () {
         });
     });
 
+    describe('POST endpoint', function () {
+
+        it('should add a new post in forum', function () {
+            const newUser = {
+                email: faker.internet.email(),
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
+                password: faker.internet.password()
+            };
+
+            User.insertMany(newUser);
+
+            const newForum = {
+                title: faker.lorem.sentence(),
+                content: faker.lorem.text(),
+                // using the user seed data's _id value
+                user: newUser.email
+            };
+
+            console.log(newForum);
+            return chai.request(app)
+                .post('/api/forums')
+                .send(newForum)
+                .then(function (post) {
+                    expect(post).to.have.status(201);
+                    expect(post).to.be.json;
+                    expect(post.body).to.be.a('object');
+                    expect(post.body).to.include.keys(
+                        'id', 'title', 'content');
+                    // cause Mongo should have created id on insertion
+                    expect(post.body.id).to.not.be.null;
+                    expect(post.body.title).to.equal(newForum.title);
+                    expect(post.body.user).to.equal(`${newUser.firstName} ${newUser.lastName}`);
+                    expect(post.body.content).to.equal(newForum.content);
+                    return Forum.findById(post.body.id);
+                })
+                .then(function (forum) {
+                    expect(newForum.title).to.equal(forum.title);
+                    expect(newForum.content).to.equal(forum.content);
+                    expect(newForum.user).to.equal(forum.user.email);
+
+                });
+        });
+    });
+
+
 
 });
 
