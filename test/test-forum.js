@@ -181,7 +181,58 @@ describe('Forum endpoints', function () {
         });
     });
 
+    describe('PUT endpoint', function () {
 
+        it('should update fields in forum', function () {
+            const updateData = {
+                title: "ExampleTitle",
+                content: "Example of a bunch of awords"
+            };
+
+            return Forum
+                .findOne()
+                .then(function (forum) {
+                    updateData.id = forum.id;
+
+                    // make request then inspect it to make sure it reflects
+                    // data we sent
+                    return chai.request(app)
+                        .put(`/api/forums/${forum.id}`)
+                        .send(updateData);
+                })
+                .then(function (post) {
+                    expect(post).to.have.status(200);
+
+                    return Forum.findById(updateData.id);
+                })
+                .then(function (forum) {
+                    expect(forum.name).to.equal(updateData.name);
+                    expect(forum.cuisine).to.equal(updateData.cuisine);
+                });
+        });
+    });
+
+    describe('DELETE endpoint', function () {
+
+        it('delete a forum post by id', function () {
+
+            let forum;
+
+            return Forum
+                .findOne()
+                .then(function (_forum) {
+                    forum = _forum;
+                    return chai.request(app).delete(`/api/forums/${forum.id}`);
+                })
+                .then(function (post) {
+                    expect(post).to.have.status(204);
+                    return Forum.findById(post.id);
+                })
+                .then(function (_post) {
+                    expect(_post).to.be.null;
+                });
+        });
+    });
 
 });
 
