@@ -164,7 +164,7 @@ describe('Forum endpoints', function () {
                     expect(post).to.be.json;
                     expect(post.body).to.be.a('object');
                     expect(post.body).to.include.keys(
-                        'id', 'title', 'content');
+                        'id', 'title', 'user', 'content');
                     // cause Mongo should have created id on insertion
                     expect(post.body.id).to.not.be.null;
                     expect(post.body.title).to.equal(newForum.title);
