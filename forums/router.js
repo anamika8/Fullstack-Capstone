@@ -96,7 +96,7 @@ router.put("/:id", (req, res) => {
             toUpdate[field] = req.body[field];
         }
     });
-
+    //used to keep track whenever the forum will updated
     toUpdate.updated = Date.now();
 
     Forum
