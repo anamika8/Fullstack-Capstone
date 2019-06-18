@@ -17,6 +17,7 @@ const router = express.Router();
 router.use(bodyParser.json());
 
 router.get("/", (req, res) => {
+    // Forum.find().sort({posted:-1}).limit(10)
     Forum.find()
         .then(forums => {
             res.json({

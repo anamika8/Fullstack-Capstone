@@ -31,6 +31,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
+
     Comment
         .findById(req.params.id)
         .then(comment => res.json(comment.serialize()))
@@ -42,7 +43,7 @@ router.get("/:id", (req, res) => {
 
 router.post("/", (req, res) => {
     console.log(req.body);
-    const requiredFields = ["content", "user", "forumID"];
+    const requiredFields = ["content", "user", "forum"];
     for (let i = 0; i < requiredFields.length; i++) {
         const field = requiredFields[i];
         if (!(field in req.body)) {
@@ -58,14 +59,14 @@ router.post("/", (req, res) => {
         .then(user => {
             if (user) {
                 Forum
-                    .findOne({ _id: req.body.forumID })
+                    .findOne({ _id: req.body.forum })
                     .then(forum => {
                         if (forum) {
                             Comment
                                 .create({
                                     content: req.body.content,
                                     user: user._id,
-                                    forumID: forum._id
+                                    forum: forum._id
                                 })
                                 .then(comment => Comment.findOne({ _id: comment._id }))
                                 .then(comment => res.status(201).json(comment.serialize()))
