@@ -30,14 +30,25 @@ router.get("/", (req, res) => {
         });
 });
 
+
 router.get("/:id", (req, res) => {
 
-    Comment
+    Forum
         .findById(req.params.id)
-        .then(comment => res.json(comment.serialize()))
-        .catch(err => {
-            console.error(err);
-            res.status(500).json({ message: "Internal server error" });
+        .then(forums => {
+            if (forums) {
+                Comment
+                    .find({ forum: forums._id })
+                    .then(comments => {
+                        res.json({
+                            comments: comments.map(comment => comment.serialize())
+                        });
+                    })
+            } else {
+                const message = `Post does not exist`;
+                console.error(message);
+                return res.status(400).send(message);
+            }
         });
 });
 
