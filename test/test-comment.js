@@ -146,7 +146,7 @@ describe('Comment section', function () {
 
     describe('POST endpoint', function () {
 
-        it('should add a new comment in forum', function () {
+        it('user should be able to add a comment to its own forum', function () {
             const newUser = {
                 email: faker.internet.email(),
                 firstName: faker.name.firstName(),
@@ -193,7 +193,67 @@ describe('Comment section', function () {
 
                 });
         });
+
+        it('a different user should be able to add a comment in forum', function () {
+            // user who will make the comment
+            const userGivingComment = {
+                email: faker.internet.email(),
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
+                password: faker.internet.password()
+            };
+
+            User.insertMany(userGivingComment);
+            // user will create the forum post
+            const userWritingForum = {
+                email: faker.internet.email(),
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
+                password: faker.internet.password()
+            };
+
+            User.insertMany(userWritingForum);
+
+            const newForum = {
+                title: faker.lorem.sentence(),
+                _id: mongoose.Types.ObjectId(),
+                user: userWritingForum._id
+            };
+
+            Forum.insertMany(newForum);
+
+            const newComment = {
+                content: faker.lorem.text(),
+                // using the user seed data's _id value
+                user: userGivingComment.email,
+                // using the forum seed data's _id value
+                forum: newForum._id
+            }
+
+            //console.log(newComment);
+            return chai.request(app)
+                .post('/api/comments')
+                .send(newComment)
+                .then(function (remark) {
+                    expect(remark).to.have.status(201);
+                    expect(remark).to.be.json;
+                    expect(remark.body).to.be.a('object');
+                    expect(remark.body).to.include.keys(
+                        'id', 'content', 'user');
+                    // cause Mongo should have created id on insertion
+                    expect(remark.body.id).to.not.be.null;
+                    expect(remark.body.content).to.equal(newComment.content);
+                    expect(remark.body.user).to.equal(`${userGivingComment.firstName} ${userGivingComment.lastName}`);
+                    return Comment.findById(remark.body.id);
+                })
+                .then(function (comment) {
+                    expect(newComment.content).to.equal(comment.content);
+                    expect(newComment.user).to.equal(comment.user.email);
+
+                });
+        });
     });
+
 
 
 });
