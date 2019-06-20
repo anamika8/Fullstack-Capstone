@@ -17,7 +17,8 @@ const router = express.Router();
 router.use(bodyParser.json());
 
 router.get("/", (req, res) => {
-    Forum.find()
+    // Forum.find().sort({posted:-1}).limit(10)
+    Forum.find().sort({ posted: -1 }).limit(10)
         .then(forums => {
             res.json({
                 forums: forums.map(forum => forum.serialize())
@@ -96,7 +97,7 @@ router.put("/:id", (req, res) => {
             toUpdate[field] = req.body[field];
         }
     });
-
+    //used to keep track whenever the forum will updated
     toUpdate.updated = Date.now();
 
     Forum
