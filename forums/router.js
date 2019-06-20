@@ -18,7 +18,7 @@ router.use(bodyParser.json());
 
 router.get("/", (req, res) => {
     // Forum.find().sort({posted:-1}).limit(10)
-    Forum.find()
+    Forum.find().sort({ posted: -1 }).limit(10)
         .then(forums => {
             res.json({
                 forums: forums.map(forum => forum.serialize())

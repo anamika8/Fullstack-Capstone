@@ -72,15 +72,6 @@ describe('Forum endpoints', function () {
         return tearDownDb();
     });
 
-    /**
-     * First remove users fake data
-     * Then remove formuns fake data
-     */
-    /*afterEach(function () {
-        User.remove({});
-        return Forum.remove({});
-    });*/
-
     after(function () {
         return closeServer();
     });
