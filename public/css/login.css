@@ -4,7 +4,7 @@ You will see this format used in a few more places. */
 body {
  
   font-family: "Roboto", helvetica, sans-serif;
-  padding: 10px 0 0;
+  padding: 20px 0 0;
   margin: 0;
   font-size: 18px;
 }
@@ -28,7 +28,7 @@ fieldset {
   margin: 0 auto;
 }
 
-.signup-form {
+.login-form {
   width: 400px;
   padding: 20px;
   border-radius: 3px;
@@ -36,7 +36,7 @@ fieldset {
   margin: 0 auto;
 }
 
-.signup-form legend {
+.login-form legend {
   width: 100%;
   line-height: 38px;
   font-size: 30px;
@@ -44,7 +44,7 @@ fieldset {
   color: #565656;
   text-align: center;
   letter-spacing: 0;
-  margin: 0 auto 30px;
+  margin: 0 auto 45px;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
@@ -60,11 +60,11 @@ button[type="submit"] {
   height: auto;
   font-size: 15px;
   text-align: left;
-  padding: 10px;
+  padding: 15px;
   border: 2px solid #e7e7e7;
   border-radius: 3px;
   background: #fcfcfc;
-  margin: 5px auto 20px;
+  margin: 10px auto 20px;
   transition: opacity 0.4s;
 }
 
@@ -109,20 +109,20 @@ button[type="submit"]:focus {
   transition: background 0.1s;
 }
 
-.signup-form p {
+.login-form p {
   font-size: 16px;
   text-align: center;
   margin: 10px 0 0;
   color: #696969;
 }
 
-.signup-form a {
+.login-form a {
   color: #999;
   text-decoration: none;
   border-bottom: 1px solid #bbb;
 }
 
-.signup-form a:hover {
+.login-form a:hover {
   border-color: #999;
   color: #777;
 }
