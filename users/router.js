@@ -132,6 +132,7 @@ router.post('/', jsonParser, (req, res) => {
       } else if (err.name === 'ValidationError') {
         return res.status(400).json({ code: 400, message: err.message });
       }
+      console.log(err.message);
       res.status(500).json({ code: 500, message: 'Internal server error' });
     });
 });
