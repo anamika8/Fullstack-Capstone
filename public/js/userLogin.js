@@ -2,8 +2,8 @@
 
 // when user clicks on the Login button
 function handleLogin() {
-    $('.login-form').submit(function (e) {
-        e.preventDefault();
+    $('.login-form').submit(function () {
+        event.preventDefault();
         $.ajax({
             url: '/api/auth/login',
             dataType: 'json',

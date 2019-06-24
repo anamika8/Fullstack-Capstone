@@ -53,6 +53,7 @@ color below, but it largely overlaps with email/password
 input styling, so we include it in the same style block, then
 override parts of it in its own declaration. */
 input[type="email"],
+input[type="text"],
 input[type="password"],
 button[type="submit"] {
   display: block;

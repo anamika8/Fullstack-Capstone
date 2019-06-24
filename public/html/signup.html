@@ -6,17 +6,25 @@
     <meta name="viewport" content="width=device-width">
     <title>Sign-Up</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link href="../css/signup.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <link href="signup.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
     <header role="banner">
-        <img src="../img/logo.jpg" alt="caption" class='logo'>
+        <img src="logo.jpg" alt="caption" class='logo'>
     </header>
     <main role="main">
         <form role="form" action="/signup" method="post" class="signup-form">
             <fieldset name="Sign up">
                 <legend>Welcome!</legend>
+
+                <label for="firstName">First Name *</label>
+                <input type="text" name="firstName" id="firstName" placeholder="John" />
+
+                <label for="lastName">Last Name *</label>
+                <input type="text" name="lastName" id="lastName" placeholder="" />
 
                 <label for="email">Email *</label>
                 <input type="email" name="email" id="email" placeholder="example@email.com" />
@@ -43,7 +51,7 @@
         <p>Already have an account? <a href="login.html">Log in</a></p>
     </footer>
 
-    <script src="../js/userSignup.js"></script>
+    <script src="userSignup.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 </body>
