@@ -1,0 +1,74 @@
+/* Note the 3 values after padding: 
+in order, they set the top, left and right, and bottom sizes. 
+You will see this format used in a few more places. */
+body {
+ 
+  font-family: "Roboto", helvetica, sans-serif;
+  padding: 5px 0 0;
+  margin: 0;
+  font-size: 18px;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+.js-container {
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+.logo {
+  display: block;
+  width: auto;
+  height: 220px;
+  margin: 0 auto;
+}
+
+.app-first-page h2 {
+  width: 100%;
+  line-height: 38px;
+  font-size: 30px;
+  font-weight:500 ;
+  color: #565656;
+  text-align: center;
+  letter-spacing: 0;
+  margin: 0 auto 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.app-first-page p {
+  font-size: 20px;
+  text-align: center;
+  margin: 10px 0 0;
+  color: #696969;
+  font-weight: 350;
+}
+
+.button-container button {
+  display: block;
+  width: 20%;
+  height: auto;
+  font-size: 18px;
+  font-weight: bold;
+  color: #565656;
+  text-align: center;
+  padding: 15px;
+  border: 2px solid #e7e7e7;
+  border-radius: 3px;
+  background: #fcfcfc;
+  margin: 10px auto 20px;
+  transition: opacity 0.4s;
+}
+
+.button-container button:hover,
+.button-container button:focus {
+  background-color: #0CB863;
+  -webkit-transition: background 0.1s;
+  -moz-transition: background 0.1s;
+  -o-transition: background 0.1s;
+  transition: background 0.1s;
+}
+
+

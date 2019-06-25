@@ -18,7 +18,10 @@ mongoose.Promise = global.Promise;
 const { PORT, DATABASE_URL } = require("./config");
 const app = express();
 //// log the http layer
-app.use(express.static('public'));
+app.use("/", express.static('public/html/'));
+app.use("/", express.static('public/css'));
+app.use("/", express.static('public/img'));
+app.use("/", express.static('public/js'));
 
 // Logging
 app.use(morgan('common'));
