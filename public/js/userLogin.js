@@ -22,7 +22,7 @@ function handleLogin() {
     })
 }
 
-/**
+/** 
  * The main function used to handle user login.
  */
 $(function handleLoginPage() {
