@@ -1,0 +1,53 @@
+
+body {
+  font-family: "Roboto", helvetica, sans-serif;
+  padding: 20px 0 0;
+  margin: 0;
+  font-size: 18px;
+}
+
+body * {
+  box-sizing: border-box;
+  font-weight: 300;
+   
+}
+
+.logo {
+  display: block;
+  width: auto;
+  height: 180px;
+  margin: 0 auto;
+}
+
+#menu ul li a {
+    color: #000B29;
+    transition: .3s;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#menu ul li {
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+#menu ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    margin-bottom: 15px;
+    margin-top: 0px;
+}
+
+div {
+    display: block;
+}
+
+#menu-parent {
+  text-align: center;
+}

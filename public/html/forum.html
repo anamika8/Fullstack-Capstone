@@ -7,6 +7,7 @@
     <title>Forum</title>
     <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <link href="forum.css" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -15,8 +16,24 @@
         <img src="logo.jpg" alt="caption" class='logo'>
     </header>
     <main role="main">
-        <h1> welcome to mommy talks forum</h1>
+        <div id="menu-parent">
+            <div id="menu">
+                <ul>
+                    <li class="create-menu-item"><a href="/create"><i class="fa fa-star-o"
+                                aria-hidden="true"></i>Create</a>
+                    </li>
+                    <li class="feed-menu-item"><a href="/feed"><i class="fa fa-heart-o" aria-hidden="true"></i>Feed</a>
+                    </li>
+                    <li class="profile-menu-item"><a href="/profile"><i class="fa fa-user-o"
+                                aria-hidden="true"></i>Profile</a></li>
+                    <li class="logout-menu-item"><a href="/logout"><i class="fa fa-moon-o"
+                                aria-hidden="true"></i>Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </main>
+    <script src="https://use.fontawesome.com/3a36aded45.js"></script>
 </body>
 
 </html>
