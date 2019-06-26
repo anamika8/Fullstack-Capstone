@@ -12,7 +12,6 @@ function handleLogin() {
             data: JSON.stringify({ "email": $('#email').val(), "password": $('#user-password').val() }),
             processData: false,
             success: function (data, textStatus, jQxhr) {
-                //alert(JSON.stringify(data));
                 window.location = "/forum.html";
             },
             error: function (jqXhr, textStatus, errorThrown) {
