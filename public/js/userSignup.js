@@ -8,8 +8,9 @@ function handleSignup() {
 
         // verify password and verify-password fields are same
         if ($('#user-password').val() != $('#verify-password').val()) {
-            let newHTMLValues = `<strong>Password abd Verify Password fields do not match!</strong>`;
+            const newHTMLValues = `Password and Verify Password fields do not match!`;
             showErrorMessage(newHTMLValues);
+            return;
         }
 
         // capture the signup data
@@ -44,7 +45,7 @@ function handleSignup() {
  * @param errorMessage 
  */
 function showErrorMessage(errorMessage) {
-    $('#errorMessage').html(newHTMLValues);
+    $('#errorMessage').html(errorMessage);
     $('#errorMessage').removeClass('hidden');
 }
 
