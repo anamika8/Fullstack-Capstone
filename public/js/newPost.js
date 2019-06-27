@@ -1,22 +1,29 @@
 'use strict';
 
+let loggedInUserEmail = '';
 
-// when user clicks on the Login button
-function handleLogin() {
-    $('.login-form').submit(function () {
+// create a new post
+function handleNewPost() {
+    $('#query-form').submit(function () {
         event.preventDefault();
+
+        const newForum = {
+            title: $("#title").val(),
+            content: $("#ck-editor").val(),
+            user: localStorage.getItem("loggedInUserEmail")
+        };
+
+        console.log(JSON.stringify(newForum));
+
         $.ajax({
-            url: '/api/auth/login',
+            url: '/api/forums',
             dataType: 'json',
             type: 'post',
             contentType: 'application/json',
-            data: JSON.stringify({ "email": $('#email').val(), "password": $('#user-password').val() }),
+            data: JSON.stringify(newForum),
             processData: false,
             success: function (data, textStatus, jQxhr) {
                 window.location = "/forum.html";
-                // setting the email-id in localStorage, to be later retrieved for posting & seeing posts
-                localStorage.setItem("loggedInUserEmail", $('#email').val());
-                console.log(`User ${loggedInUserEmail} is logged in`);
             },
             error: function (jqXhr, textStatus, errorThrown) {
                 console.log(errorThrown);
@@ -30,6 +37,7 @@ function handleLogin() {
  * display forum feed and update on existing post
  */
 $(function app_main() {
-    console.log('User about to login');
-    handleLogin();
+    loggedInUserEmail = localStorage.getItem("loggedInUserEmail");
+    console.log(`Waiting for user ${loggedInUserEmail} to create new post`);
+    handleNewPost();
 });
