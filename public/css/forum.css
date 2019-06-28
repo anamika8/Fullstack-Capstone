@@ -71,7 +71,7 @@ div {
   padding: 8px 15px;
   border-radius: 3px;
   border: 0.5px solid rgb(169, 169, 169);
-  background: #fcfcfc;
+  background: #f1f1f1;
 }
 
 .pages a {
@@ -97,8 +97,8 @@ div {
   height: 37px;
   width: 25%;
   border:1.5px solid rgb(169, 169, 169);
-  background: #fcfcfc;
-  font-weight: bold;
+  background: #f1f1f1;
+  font-weight: 780;
 }
 
 .icon {
@@ -137,7 +137,7 @@ div {
 }
 
 div.post_log {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: #f1f1f1;;
     border-radius: 5px;
 }
 
