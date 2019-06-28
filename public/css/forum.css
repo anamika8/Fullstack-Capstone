@@ -12,6 +12,10 @@ body * {
    
 }
 
+.inactiveLink {
+   pointer-events: none;
+   cursor: default;
+}
 
 .logo {
   display: block;
