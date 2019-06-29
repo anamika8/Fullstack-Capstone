@@ -13,10 +13,9 @@ function handleLogin() {
             data: JSON.stringify({ "email": $('#email').val(), "password": $('#user-password').val() }),
             processData: false,
             success: function (data, textStatus, jQxhr) {
-                window.location = "/forum.html";
                 // setting the email-id in localStorage, to be later retrieved for posting & seeing posts
                 localStorage.setItem("loggedInUserEmail", $('#email').val());
-                console.log(`User ${loggedInUserEmail} is logged in`);
+                window.location = "/forum.html";
             },
             error: function (jqXhr, textStatus, errorThrown) {
                 console.log(errorThrown);

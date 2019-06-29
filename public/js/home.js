@@ -130,7 +130,7 @@ function handleSearch() {
 
 function triggerSearch(searchText) {
     if (searchText.trim() == '') {
-        viewRecentPosts();
+        location.reload();
         return;
     }
     $.ajax({
@@ -148,6 +148,14 @@ function triggerSearch(searchText) {
     });
 }
 
+function handleMoreInfoLink() {
+    $('#allFeed').on('click', '.more-details', function (event) {
+        localStorage.setItem("forumId", $(this).attr('id'));
+        console.log("Details page forum id: " + $(this).attr('id'));
+        window.location = "/update-forum.html";
+    });
+}
+
 /** 
  * The main function used to handle user login, new post creation,
  * display forum feed and update on existing post
@@ -159,4 +167,5 @@ $(function handleHomePage() {
     goToNextPage();
     goToPrevPage();
     handleSearch();
+    handleMoreInfoLink();
 });
