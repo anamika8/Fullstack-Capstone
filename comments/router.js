@@ -30,7 +30,7 @@ router.get("/", (req, res) => {
         });
 });
 
-
+// get comments by forum-id
 router.get("/:id", (req, res) => {
 
     Forum
