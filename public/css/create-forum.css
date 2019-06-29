@@ -73,6 +73,8 @@ input {
     margin: 0 auto;
     display: block;
     border:1px solid rgb(169, 169, 169);
+    background-color:#f1f1f1;
+    font-weight: bold;
 }
 
 textarea {
@@ -80,13 +82,14 @@ textarea {
     cursor: text;
     padding: 10px 15px;
     margin: 0 auto;
-    background:#ffffff;
+    background-color:#f1f1f1;
     border:1.5px solid rgb(169, 169, 169);
     width: 800px; 
     height: 185px;
     overflow-y: auto;
     overflow-x: hidden; 
     resize: none;
+    font-weight: bold;
 
 }
 

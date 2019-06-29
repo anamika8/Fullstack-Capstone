@@ -116,6 +116,34 @@ function buildEveryFeedItem(forumData) {
     return returnHTML;
 }
 
+// handles search
+function handleSearch() {
+    $('#search-icon').click(function () {
+        feedIndexStartWith = 0;
+        localStorage.setItem(feedIndexKey, feedIndexStartWith);
+        // get the search text and trigger search
+        let searchText = $("#search").val();
+        triggerSearch(searchText);
+        buildAnyPageFeed(feedDataArray, feedIndexStartWith);
+    });
+}
+
+function triggerSearch(searchText) {
+    $.ajax({
+        url: '/api/forums/topics?title=' + searchText,
+        dataType: 'json',
+        type: 'get',
+        contentType: 'application/json',
+        processData: false,
+        success: function (data, textStatus, jQxhr) {
+            buildFirstPageFeed(data);
+        },
+        error: function (jqXhr, textStatus, errorThrown) {
+            console.log(errorThrown);
+        }
+    });
+}
+
 /** 
  * The main function used to handle user login, new post creation,
  * display forum feed and update on existing post
@@ -126,4 +154,5 @@ $(function handleHomePage() {
     viewRecentPosts();
     goToNextPage();
     goToPrevPage();
+    handleSearch();
 });
