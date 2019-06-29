@@ -136,7 +136,7 @@ button[type="submit"]:focus {
     max-width: 1000px;
     padding-left: 20px;
     padding-right: 20px;
-    margin: 0 auto;
+    margin: auto auto;
     margin-bottom: 10px;
 }
 

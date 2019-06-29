@@ -72,12 +72,12 @@ function displayComments() {
 }
 
 function populateCommentSection(data) {
-    $("#all-comments").empty();
+    $('#all-comment').empty();
 
     let allComments = '';
     let numberOfComments = data.comments.length;
     if (numberOfComments == 0) {
-        allComments = createAddCommentBox();
+        allComments += createAddCommentBox();
     } else {
         let commentArray = data.comments;
         for (let i = 0; i < numberOfComments; i++) {
@@ -86,8 +86,7 @@ function populateCommentSection(data) {
         }
         allComments += createAddCommentBox();
     }
-
-    $("#all-comments").append(allComments);
+    $('#all-comment').html(allComments);
 }
 
 /**
@@ -112,7 +111,7 @@ function createAddCommentBox() {
 }
 
 function handlePostComment() {
-    $('#all-comments').on('keyup', '#newComment', function (event) {
+    $('#all-comment').on('keyup', '#newComment', function (event) {
         // enter button keycode = 13
         if (event.keyCode == 13) {
             let commentInfo = $("#newComment").val();
