@@ -1,0 +1,210 @@
+
+body {
+  font-family: "Roboto", helvetica, sans-serif;
+  padding: 20px 0 0;
+  margin: 0;
+  font-size: 18px;
+}
+
+body * {
+  box-sizing: border-box;
+  font-weight: 300;
+   
+}
+
+.logo {
+  display: block;
+  width: auto;
+  height: 180px;
+  margin: 0 auto;
+}
+
+#menu ul li a {
+    color: #000B29;
+    transition: .3s;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#menu ul li {
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+#menu ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    margin-bottom: 15px;
+    margin-top: 0px;
+}
+
+div {
+    display: block;
+}
+
+#menu-parent {
+  text-align: center;
+}
+
+.view-pg-title {
+    font-size: 32px;
+    color: #0CB863;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+/*
+h1 {
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
+}*/
+
+input {
+    height: 36px;
+    width: 30%;
+    padding: 10px 15px;
+    margin: 0 auto;
+    display: block;
+    border:1px solid rgb(169, 169, 169);
+    background-color:#f1f1f1;
+}
+
+input::placeholder, textarea::placeholder{
+  font-weight: bold;
+}
+
+#mt-editor {
+    display: block;
+    cursor: text;
+    padding: 10px 15px;
+    margin: 0 auto;
+    background-color:#f1f1f1;
+    border:1.5px solid rgb(169, 169, 169);
+    width: 800px; 
+    height: 80px;
+    overflow-y: auto;
+    overflow-x: hidden; 
+    resize: none;
+}
+
+#all-comment {
+   display: block;
+    cursor: text;
+    padding: 10px 15px;
+    margin: 0 auto;
+    background-color:#f1f1f1;
+    border:1.5px solid rgb(169, 169, 169);
+    width: 800px; 
+    height: 180px;
+    overflow-y: auto;
+    overflow-x: hidden; 
+
+}
+
+button {
+    background-color: transparent;
+    height: 35px;
+    width: 20%;
+    font-size: 20px;
+    transition: .3s;
+    margin: 0 auto;
+    display: block;
+    background: #15CD72;
+    color: white;
+    border: 0;
+   cursor: pointer;
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+  background-color:#285730;
+  -webkit-transition: background 0.1s;
+  -moz-transition: background 0.1s;
+  -o-transition: background 0.1s;
+  transition: background 0.1s;
+}
+
+
+.rows {
+    max-width: 1000px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+div.comment_log {
+    background-color: #f1f1f1;;
+    border-radius: 5px;
+}
+
+.colm-3, .colm-4, .colm-6, .colm-12 {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.border {
+    border: 1.5px solid rgb(169, 169, 169);;
+}
+
+.colm-3, .colm-4, .colm-6, .colm-12 {
+    float: left;
+    padding-left: 1.04166666%;
+    padding-right: 1.04166666%;
+}
+
+span.comment {
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left; 
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #15CD72;
+    border-color: #15CD72;
+}
+
+.icon:hover {
+
+  background-color: #285730;
+  -webkit-transition: background 0.1s;
+  -moz-transition: background 0.1s;
+  -o-transition: background 0.1s;
+  transition: background 0.1s;
+
+}
+
+.add-comment {
+  font-size: 17px;
+  padding: 8px 15px;
+  text-align: center;
+  display: block;
+
+}
+
+.add-comment a {
+  text-decoration: none;
+}
+
+ a:hover {
+  text-decoration: underline;
+  font-weight: bold;
+  color:#285730;
+  
+}
+
