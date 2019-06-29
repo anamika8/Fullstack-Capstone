@@ -33,7 +33,7 @@ router.get("/", (req, res) => {
 router.get("/topics", (req, res) => {
     let topic = req.query.title;
     console.log(`Searching with text - ${topic}`);
-    var regexp = new RegExp(topic);
+    var regexp = new RegExp(topic, 'i');
     Forum.find({ "title": regexp }).sort({ posted: -1 }).limit(10)
         .then(forums => {
             res.json({

@@ -129,6 +129,10 @@ function handleSearch() {
 }
 
 function triggerSearch(searchText) {
+    if (searchText.trim() == '') {
+        viewRecentPosts();
+        return;
+    }
     $.ajax({
         url: '/api/forums/topics?title=' + searchText,
         dataType: 'json',
