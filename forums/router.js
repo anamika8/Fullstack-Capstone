@@ -17,8 +17,24 @@ const router = express.Router();
 router.use(bodyParser.json());
 
 router.get("/", (req, res) => {
-    // Forum.find().sort({posted:-1}).limit(10)
     Forum.find().sort({ posted: -1 }).limit(10)
+        .then(forums => {
+            res.json({
+                forums: forums.map(forum => forum.serialize())
+            });
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json({ message: "Internal server error" });
+        });
+});
+
+// find forums matching topic
+router.get("/topics", (req, res) => {
+    let topic = req.query.title;
+    console.log(`Searching with text - ${topic}`);
+    var regexp = new RegExp(topic, 'i');
+    Forum.find({ "title": regexp }).sort({ posted: -1 }).limit(10)
         .then(forums => {
             res.json({
                 forums: forums.map(forum => forum.serialize())

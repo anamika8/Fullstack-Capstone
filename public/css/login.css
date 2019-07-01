@@ -102,7 +102,7 @@ button[type="submit"]:focus {
 
 button[type="submit"]:hover,
 button[type="submit"]:focus {
-  background-color: #0CB863;
+  background-color: #285730;
   -webkit-transition: background 0.1s;
   -moz-transition: background 0.1s;
   -o-transition: background 0.1s;
@@ -142,5 +142,5 @@ button[type="submit"]:focus {
 }
 
 .footer a:hover {
-  color: #E7F1F9; 
+  color: darkblue; 
 }

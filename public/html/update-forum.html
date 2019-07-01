@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Forum</title>
+    <title>Update Forum</title>
     <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <link href="forum.css" rel="stylesheet" type="text/css" />
+    <link href="update-forum.css" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -34,41 +34,21 @@
         </div>
     </header>
     <main role="main">
-        <div id="search-section">
-            <div class="input-container">
-                <input type="text" id="search" placeholder="Search Topics..." />
-                <i class="fa fa-search icon" id="search-icon"></i>
-            </div>
 
-            <div class="pages">
-                <a class="pages-button" id="prev">&lt; Prev</a>
-                <a class="pages-button" id="next">Next &gt;</a>
-            </div>
-        </div>
+        <form action="/query" method="post" id="query-form">
+            <p><input type="text" name="title" id="title" placeholder="Title"></p>
+            <p><textarea name="content" id="mt-editor" placeholder="Content"></textarea></p>
+            <p><button type="submit" name="submit">Update</button></p>
+        </form>
 
-        <div class="post_results rows" id="allFeed">
-
-            <div class="post_log colm-4 border">
-                <span class="result">Title: </span>
-                <span class="result">Content: </span>
-                <a class="more-details">Learn More</a>
+        <div class="rows" id="all-comment">
+            <div class="comment_log colm-4 border" id="defaultCommentBox">
+                <input type="text" class="colm-4" id="newComment" placeholder="Write your comment" maxlength="60">
             </div>
-
-            <div class="post_log colm-4 border">
-                <span class="result">Title: </span>
-                <span class="result">Content: </span>
-                <a class="more-details">Learn More</a>
-            </div>
-            <div class="post_log colm-4 border">
-                <span class="result">Title: </span>
-                <span class="result">Content: </span>
-                <a class="more-details">Learn More</a>
-            </div>
-
         </div>
 
     </main>
-    <script src="home.js"></script>
+    <script src="updatePost.js"></script>
     <script src="https://use.fontawesome.com/3a36aded45.js"></script>
 </body>
 
