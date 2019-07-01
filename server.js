@@ -50,14 +50,18 @@ const jwtAuth = passport.authenticate('jwt', { session: false });
 // A protected endpoint which needs a valid JWT to access it
 app.get('/api/protected', jwtAuth, (req, res) => {
     return res.json({
-        data: 'rosebud'
+        data: 'created by admin'
     });
+});
+
+app.get('/logout', function (req, res) {
+    req.logout();
+    res.redirect('/');
 });
 
 app.use('*', (req, res) => {
     return res.status(404).json({ message: 'Not Found' });
 });
-
 
 
 // closeServer needs access to a server object, but that only
