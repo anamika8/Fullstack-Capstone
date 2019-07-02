@@ -208,6 +208,23 @@ span.comment {
   
 }
 
+span.user {
+  margin: 10px auto;
+  border: 0;
+  padding: 0;
+  display: block;
+  float:right;
+  margin-right: 2%;
+  font-size: 15px;
+}
+
+
+#user-info {
+  float:right;
+  margin-right:20%;
+  font-size: 15px;
+}
+
 .footer {
   color:	#484848;
   margin: 10px auto;
