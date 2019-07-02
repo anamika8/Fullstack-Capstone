@@ -147,4 +147,12 @@ router.get('/', (req, res) => {
     .catch(err => res.status(500).json({ message: 'Internal server error' }));
 });
 
+router.get('/:id', (req, res) => {
+  let emailId = req.params.id;
+  console.log("Email id of user: " + emailId);
+  return User.findOne({ email: emailId })
+    .then(user => res.json(user.serialize()))
+    .catch(err => res.status(500).json({ message: 'Internal server error' }));
+});
+
 module.exports = { router };

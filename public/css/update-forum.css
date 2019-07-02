@@ -236,3 +236,8 @@ span.user {
   font-size: 15px;
 }
 
+.inactiveButton {
+   pointer-events: none;
+   cursor: default;
+}
+
