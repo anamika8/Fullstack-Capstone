@@ -257,3 +257,170 @@ span.user {
    background-color: #484848;
 }
 
+@media only screen and (max-width: 325px) {
+
+body {
+  font-size: 13px;
+}
+
+logo {
+  width: auto;
+  height: 150px;
+}
+
+#menu ul li {
+  font-size:14px;
+
+}
+
+input {
+    height: 40px;
+    width: 50%;
+
+}
+#mt-editor {
+    width: 300px; 
+    height: 60px;
+}
+
+#all-comment {
+  width: 350px; 
+  height: 150px;
+}
+
+#user-info {
+  margin-bottom:8px;
+}
+
+.inner
+{
+  margin-bottom: 5px;
+}
+button {
+    height: 25px;
+    width: 180px;
+    font-size: 15px;
+  
+}
+
+}
+
+@media only screen and (max-width: 380px) and (min-width: 330px) {
+
+body {
+  font-size: 15px;
+}
+
+
+#menu ul li {
+    font-size:16px;
+
+}
+input {
+    height: 40px;
+    width: 50%;
+}
+
+#mt-editor {
+    width: 300px; 
+    height: 60px;
+}
+
+#all-comment {
+  width: 400px; 
+  height: 150px;
+}
+
+#user-info {
+  margin-bottom:8px;
+}
+
+.inner
+{
+  margin-bottom: 5px;
+}
+
+}
+
+@media only screen and (max-width: 414px) and (min-width: 400px){
+
+#mt-editor {
+    width: 370px; 
+    height: 80px;
+  
+}
+
+button {
+    width: 180px;
+    font-size: 20px;
+  
+}
+
+#all-comment {
+  width: 390px; 
+  height: 150px;
+}
+
+}
+
+@media only screen and (max-width: 1030px) and (min-width: 765px){
+
+body {
+  font-size: 30px;
+}
+
+logo {
+  width: auto;
+  height: 250px;
+}
+
+#menu ul li {
+  font-size:35px;
+
+}
+
+#mt-editor {
+    width: 700px; 
+    height: 100px;
+    font-size: 25px;
+  
+}
+
+button {
+    width: 320px;
+    font-size: 35px;
+    height: 45px;
+    margin-bottom: 10px;
+  
+}
+
+#all-comment {
+  width: 750px; 
+  height: 180px;
+}
+
+input {
+    height: 56px;
+    width: 40%;
+    font-size: 30px;
+}
+
+#user-info {
+  margin-right:15%;
+  font-size: 25px;
+}
+
+.rows {
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+span.comment {
+    font-size: 1.8rem; 
+}
+
+.footer {
+  font-size: 20px;
+}
+
+}
