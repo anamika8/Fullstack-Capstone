@@ -161,15 +161,32 @@ function postNewComment(commentInfo) {
     });
 }
 
+function getUserName(email) {
+    $.ajax({
+        url: '/api/users/' + email,
+        dataType: 'json',
+        type: 'get',
+        contentType: 'application/json',
+        processData: false,
+        success: function (data, textStatus, jQxhr) {
+            // get the full name & store it locally
+            loggedInUserFullName = `${data.firstName} ${data.lastName}`;
+            console.log(`Waiting for user ${loggedInUserEmail} (${loggedInUserFullName}) to update post or give comment`);
+        },
+        error: function (jqXhr, textStatus, errorThrown) {
+            console.log(errorThrown);
+        }
+    });
+}
+
 /** 
  * The main function used to handle user login, new post creation,
  * display forum feed and update on existing post
  */
 $(function app_main() {
     loggedInUserEmail = localStorage.getItem("loggedInUserEmail");
-    loggedInUserFullName = localStorage.getItem("loggedInUserFullName");
+    getUserName(loggedInUserEmail);
     forumId = localStorage.getItem("forumId");
-    console.log(`Waiting for user ${loggedInUserEmail} (${loggedInUserFullName}) to update post or give comment`);
     showExistingPost();
     handleUpdatePost();
     displayComments();
