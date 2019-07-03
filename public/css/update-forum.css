@@ -239,5 +239,7 @@ span.user {
 .inactiveButton {
    pointer-events: none;
    cursor: default;
+   opacity: 0.6;
+   background-color: #484848;
 }
 
