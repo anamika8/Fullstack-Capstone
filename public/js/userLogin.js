@@ -35,6 +35,7 @@ function getUserName(userEmail) {
         success: function (data, textStatus, jQxhr) {
             // get the full name & store it locally
             let fullName = `${data.firstName} ${data.lastName}`;
+            console.log(`Setting the name ${fullName} in localStorage`);
             localStorage.setItem("loggedInUserFullName", fullName);
         },
         error: function (jqXhr, textStatus, errorThrown) {
