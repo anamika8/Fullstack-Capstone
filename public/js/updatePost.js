@@ -25,7 +25,6 @@ function showExistingPost() {
 function handleUpdatePost() {
     $('#query-form').submit(function () {
         event.preventDefault();
-
         const updateForum = {
             title: $("#title").val(),
             content: $("#mt-editor").val(),
@@ -65,11 +64,13 @@ function displayPostAuthorName(authorName) {
 function updateButtonStatus(postAuthorName) {
     console.log(`Comparing post author name ${postAuthorName} against logged in user name - ${loggedInUserFullName}`);
     if (loggedInUserFullName != postAuthorName) {
-        console.log("Not the same user - disabling the update button");
+        console.log("Not the same user - disabling the update & delete button");
         $('#updatePost').attr('disabled', 'disabled');
+        $('#deletePost').attr('disabled', 'disabled');
         $('#title').attr('disabled', 'disabled');
         $('#mt-editor').attr('disabled', 'disabled');
         $('#updatePost').addClass('inactiveButton');
+        $('#deletePost').addClass('inactiveButton');
     }
 }
 
@@ -179,6 +180,27 @@ function getUserName(email) {
     });
 }
 
+/**
+ * When delete button is clicked
+ */
+function handleDeletePost() {
+    $('#deletePost').click(function () {
+        $.ajax({
+            url: '/api/forums/' + forumId,
+            dataType: 'json',
+            type: 'DELETE',
+            contentType: 'application/json',
+            processData: false,
+            success: function (data, textStatus, jQxhr) {
+                window.location = "/forum.html";
+            },
+            error: function (jqXhr, textStatus, errorThrown) {
+                console.log(errorThrown);
+            }
+        });
+    });
+}
+
 /** 
  * The main function used to handle user login, new post creation,
  * display forum feed and update on existing post
@@ -191,4 +213,5 @@ $(function app_main() {
     handleUpdatePost();
     displayComments();
     handlePostComment();
+    handleDeletePost();
 });
