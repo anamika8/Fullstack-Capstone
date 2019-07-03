@@ -50,7 +50,6 @@ describe('Protected endpoint', function () {
         .request(app)
         .get('/api/protected')
         .then(res => {
-          //expect.fail(null, null, 'Request should not succeed')
           expect(res).to.have.status(401);
         })
         .catch(err => {
@@ -149,7 +148,7 @@ describe('Protected endpoint', function () {
         .then(res => {
           expect(res).to.have.status(200);
           expect(res.body).to.be.an('object');
-          expect(res.body.data).to.equal('rosebud');
+          expect(res.body.data).to.equal('created by admin');
         });
     });
   });
