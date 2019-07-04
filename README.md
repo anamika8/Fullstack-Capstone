@@ -1,5 +1,5 @@
 # Mommy Talks - App
-<img src="https://travis-ci.org/anamika8/Fullstack-Capstone.svg?branch=master">
+<img src="https://travis-ci.org/anamika8/Mommy-Talks.svg?branch=master">
 
 A place for new, upcoming and experienced mothers to share their concern, get helpful suggestions etc.
 
