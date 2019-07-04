@@ -141,6 +141,14 @@ button[type="submit"]:focus {
   transition: background 0.1s;
 }
 
+#newComment {
+  background-color:rgb(232, 240, 254);
+} 
+
+#newComment:focus, #newComment:hover {
+  background-color: rgb(215, 227, 247);
+}
+
 #query-form {
   margin-bottom:10px;
 }
