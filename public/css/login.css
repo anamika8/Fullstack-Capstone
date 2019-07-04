@@ -12,6 +12,15 @@ body * {
    
 }
 
+.hidden {
+  display: none;
+}
+
+.errorMessage {
+  font-size: 14px;
+  color:red;
+}
+
 /* Potentially tricky: fieldset comes with default styles we must override. */
 fieldset {
   padding: 0;

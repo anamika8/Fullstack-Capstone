@@ -4,6 +4,7 @@
 function handleLogin() {
     $('.login-form').submit(function () {
         event.preventDefault();
+        hideErrorMessage();
         $.ajax({
             url: '/api/auth/login',
             dataType: 'json',
@@ -18,10 +19,34 @@ function handleLogin() {
                 window.location = "/forum.html";
             },
             error: function (jqXhr, textStatus, errorThrown) {
+                let errorToShow = `Incorrect e-mail or password`;
+                showErrorMessage(errorToShow);
                 console.log(errorThrown);
             }
         });
     })
+}
+
+/**
+ * Display the error section
+ * 
+ * @param errorMessage 
+ */
+function showErrorMessage(errorMessage) {
+    $('#errorMessage').html(errorMessage);
+    $('#errorMessage').removeClass('hidden');
+}
+
+/**
+ * Hide the error section
+ * 
+ * @param errorMessage 
+ */
+function hideErrorMessage() {
+    $('#errorMessage').html("");
+    if (!$("#errorMessage").hasClass("hidden")) {
+        $('#errorMessage').addClass('hidden');
+    }
 }
 
 /** 
