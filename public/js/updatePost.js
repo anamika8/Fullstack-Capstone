@@ -125,7 +125,7 @@ function returnIndividualComment(commentContent, userName) {
  */
 function createAddCommentBox() {
     let returnHTML = `<div class="comment_log colm-4 border">`
-        + `<input type="text" class="colm-4" id="newComment" placeholder="Write your comment" maxlength="60">`
+        + `<input type="text" class="colm-4" id="newComment" placeholder="Write your comment" maxlength="600">`
         + `</div>`;
     return returnHTML;
 }
