@@ -126,8 +126,8 @@ button {
   
 }
 
-button[type="submit"]:hover,
-button[type="submit"]:focus {
+button:hover,
+button:focus {
   background-color:#285730;
   -webkit-transition: background 0.1s;
   -moz-transition: background 0.1s;
