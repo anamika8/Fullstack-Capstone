@@ -12,6 +12,12 @@ body * {
   
 }
 
+html {
+background-image: url("mt-background-com.jpg");
+background-repeat : no-repeat;
+background-size : cover;
+}
+
 .js-container {
   padding: 0;
   border: 0;
@@ -68,6 +74,15 @@ body * {
   -moz-transition: background 0.1s;
   -o-transition: background 0.1s;
   transition: background 0.1s;
+}
+
+.footer {
+  text-align: center;
+  color: #696969;
+  margin: 20px auto;
+  border: 0;
+  padding: 0;
+  font-weight: 550;
 }
 
 
@@ -154,6 +169,12 @@ body * {
   height: auto;
   font-size: 25px;
  
+}
+
+html {
+background-image: url("mt-background-ipod.jpg");
+background-repeat : no-repeat;
+background-size : cover;
 }
 
 }
