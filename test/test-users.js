@@ -11,7 +11,7 @@ const expect = chai.expect;
 
 // This let's us make HTTP requests
 // in our tests.
-// see: https://github.com/chaijs/chai-http
+
 chai.use(chaiHttp);
 
 describe('/api/user', function () {
@@ -50,12 +50,6 @@ describe('/api/user', function () {
             lastName
           })
           .then(res => {
-            //console.log(res);
-            //expect.fail(null, null, 'Request should not succeed')
-            /*console.log('status', res.status);
-            console.log('reason', res.body.reason);
-            console.log('message', res.body.message);
-            console.log('location', res.body.location);*/
             expect(res).to.have.status(422);
             expect(res.body.reason).to.equal('ValidationError');
             expect(res.body.message).to.equal('Missing field');
@@ -79,7 +73,6 @@ describe('/api/user', function () {
             lastName
           })
           .then(res => {
-            //expect.fail(null, null, 'Request should not succeed')
             expect(res).to.have.status(422);
             expect(res.body.reason).to.equal('ValidationError');
             expect(res.body.message).to.equal('Missing field');
@@ -103,7 +96,6 @@ describe('/api/user', function () {
             lastName
           })
           .then(res => {
-            //expect.fail(null, null, 'Request should not succeed')
             expect(res).to.have.status(422);
             expect(res.body.reason).to.equal('ValidationError');
             expect(res.body.message).to.equal(
@@ -129,7 +121,6 @@ describe('/api/user', function () {
             lastName
           })
           .then(res => {
-            //expect.fail(null, null, 'Request should not succeed')
             expect(res).to.have.status(422);
             expect(res.body.reason).to.equal('ValidationError');
             expect(res.body.message).to.equal(
@@ -155,7 +146,6 @@ describe('/api/user', function () {
             lastName
           })
           .then(res => {
-            //expect.fail(null, null, 'Request should not succeed')
             expect(res).to.have.status(422);
             expect(res.body.reason).to.equal('ValidationError');
             expect(res.body.message).to.equal(
@@ -182,7 +172,6 @@ describe('/api/user', function () {
             lastName: 1234
           })
           .then(res => {
-            //expect.fail(null, null, 'Request should not succeed')
             expect(res).to.have.status(422);
             expect(res.body.reason).to.equal('ValidationError');
             expect(res.body.message).to.equal(
@@ -209,7 +198,6 @@ describe('/api/user', function () {
             lastName
           })
           .then(res => {
-            //expect.fail(null, null, 'Request should not succeed')
             expect(res).to.have.status(422);
             expect(res.body.reason).to.equal('ValidationError');
             expect(res.body.message).to.equal(
@@ -235,7 +223,6 @@ describe('/api/user', function () {
             lastName
           })
           .then(res => {
-            //expect.fail(null, null, 'Request should not succeed')
             expect(res).to.have.status(422);
             expect(res.body.reason).to.equal('ValidationError');
             expect(res.body.message).to.equal(
@@ -262,7 +249,6 @@ describe('/api/user', function () {
             lastName
           })
           .then(res => {
-            //expect.fail(null, null, 'Request should not succeed')
             expect(res).to.have.status(422);
             expect(res.body.reason).to.equal('ValidationError');
             expect(res.body.message).to.equal(
@@ -289,7 +275,6 @@ describe('/api/user', function () {
             lastName
           })
           .then(res => {
-            //expect.fail(null, null, 'Request should not succeed')
             expect(res).to.have.status(422);
             expect(res.body.reason).to.equal('ValidationError');
             expect(res.body.message).to.equal(
@@ -315,7 +300,6 @@ describe('/api/user', function () {
             lastName
           })
           .then(res => {
-            //expect.fail(null, null, 'Request should not succeed')
             expect(res).to.have.status(422);
             expect(res.body.reason).to.equal('ValidationError');
             expect(res.body.message).to.equal(
@@ -348,7 +332,6 @@ describe('/api/user', function () {
             })
           )
           .then(res => {
-            //expect.fail(null, null, 'Request should not succeed')
             expect(res).to.have.status(422);
             expect(res.body.reason).to.equal('ValidationError');
             expect(res.body.message).to.equal(

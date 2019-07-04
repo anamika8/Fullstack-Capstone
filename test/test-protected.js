@@ -12,7 +12,7 @@ const expect = chai.expect;
 
 // This let's us make HTTP requests
 // in our tests.
-// see: https://github.com/chaijs/chai-http
+
 chai.use(chaiHttp);
 
 describe('Protected endpoint', function () {
@@ -80,7 +80,6 @@ describe('Protected endpoint', function () {
         .get('/api/protected')
         .set('Authorization', `Bearer ${token}`)
         .then(res => {
-          //expect.fail(null, null, 'Request should not succeed')
           expect(res).to.have.status(401);
         })
         .catch(err => {
@@ -113,7 +112,6 @@ describe('Protected endpoint', function () {
         .get('/api/protected')
         .set('authorization', `Bearer ${token}`)
         .then(res => {
-          //expect.fail(null, null, 'Request should not succeed')
           expect(res).to.have.status(401);
         })
         .catch(err => {

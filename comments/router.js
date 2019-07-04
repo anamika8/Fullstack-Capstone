@@ -79,11 +79,7 @@ router.post("/", (req, res) => {
                                     user: user._id,
                                     forum: forum._id
                                 })
-                                // comment - {_id, content, user, forum}
-                                // res.status(201).json(comment.serialize())
-                                // { _id:132343, content:'Hello", user: 124141, forum: 124112}
                                 .then(comment => Comment.findOne({ _id: comment._id }))
-                                // { _id:132343, content:'Hello", user: {_id,username,email}, forum: {_id,title,}}
                                 .then(comment => res.status(201).json(comment.serialize()))
                         } else {
                             const message = `Posts does not exist`;

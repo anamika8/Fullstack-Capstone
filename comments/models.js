@@ -3,8 +3,6 @@
 const mongoose = require("mongoose");
 
 
-//const commentSchema = mongoose.Schema({ content: 'string' });
-
 const commentSchema = mongoose.Schema({
     content: 'string',
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },

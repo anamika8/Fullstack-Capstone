@@ -1,6 +1,4 @@
-/* Note the 3 values after padding: 
-in order, they set the top, left and right, and bottom sizes. 
-You will see this format used in a few more places. */
+
 body {
  
   font-family: "Roboto", helvetica, sans-serif;

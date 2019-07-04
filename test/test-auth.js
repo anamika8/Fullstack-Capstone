@@ -12,7 +12,7 @@ const expect = chai.expect;
 
 // This let's us make HTTP requests
 // in our tests.
-// see: https://github.com/chaijs/chai-http
+
 chai.use(chaiHttp);
 
 describe('Auth endpoints', function () {
@@ -50,7 +50,6 @@ describe('Auth endpoints', function () {
         .request(app)
         .post('/api/auth/login')
         .then(res => {
-          //expect.fail(null, null, 'Request should not succeed')
           expect(res).to.have.status(400);
         })
         .catch(err => {
@@ -67,7 +66,6 @@ describe('Auth endpoints', function () {
         .post('/api/auth/login')
         .send({ email: 'wrongUsername', password })
         .then(res => {
-          // expect.fail(null, null, 'Request should not succeed')
           expect(res).to.have.status(401);
         })
         .catch(err => {
@@ -84,7 +82,6 @@ describe('Auth endpoints', function () {
         .post('/api/auth/login')
         .send({ email, password: 'wrongPassword' })
         .then(res => {
-          //expect.fail(null, null, 'Request should not succeed')
           expect(res).to.have.status(401);
         })
         .catch(err => {
@@ -124,7 +121,6 @@ describe('Auth endpoints', function () {
         .request(app)
         .post('/api/auth/refresh')
         .then(res => {
-          //expect.fail(null, null, 'Request should not succeed')
           expect(res).to.have.status(401);
         })
         .catch(err => {
@@ -154,7 +150,6 @@ describe('Auth endpoints', function () {
         .post('/api/auth/refresh')
         .set('Authorization', `Bearer ${token}`)
         .then(res => {
-          //expect.fail(null, null, 'Request should not succeed')
           expect(res).to.have.status(401);
         })
         .catch(err => {
@@ -187,7 +182,6 @@ describe('Auth endpoints', function () {
         .post('/api/auth/refresh')
         .set('authorization', `Bearer ${token}`)
         .then(res => {
-          //expect.fail(null, null, 'Request should not succeed')
           expect(res).to.have.status(401);
         })
         .catch(err => {

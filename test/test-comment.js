@@ -171,7 +171,7 @@ describe('Comment section', function () {
                 forum: newForum._id
             }
 
-            //console.log(newComment);
+
             return chai.request(app)
                 .post('/api/comments')
                 .send(newComment)
@@ -230,7 +230,7 @@ describe('Comment section', function () {
                 forum: newForum._id
             }
 
-            //console.log(newComment);
+
             return chai.request(app)
                 .post('/api/comments')
                 .send(newComment)
