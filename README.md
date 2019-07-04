@@ -37,6 +37,9 @@ Users can also search for topics they are interested in and view their associate
 </ul>
 
 Open the app <a href="https://mommy-talks-app.herokuapp.com/" target="_blank">here</a>
+You will see a page like this:
+![Screenshot of landing page](screenshots/app.png "Mommy-Talks")
+
 
 ## Screenshots depicting user journey
 
