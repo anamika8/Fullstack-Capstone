@@ -2,6 +2,7 @@
 
 let loggedInUserEmail = '';
 let forumId = '';
+let loggedInUserFullName = '';
 
 // see an existing post
 function showExistingPost() {
@@ -24,7 +25,6 @@ function showExistingPost() {
 function handleUpdatePost() {
     $('#query-form').submit(function () {
         event.preventDefault();
-
         const updateForum = {
             title: $("#title").val(),
             content: $("#mt-editor").val(),
@@ -53,6 +53,25 @@ function handleUpdatePost() {
 function populatePostContent(data) {
     $("#title").val(data.title);
     $("#mt-editor").val(data.content);
+    displayPostAuthorName(data.user);
+    updateButtonStatus(data.user);
+}
+
+function displayPostAuthorName(authorName) {
+    $("#user-info").html(`<i class="fa fa-user-circle-o" aria-hidden="true"></i> ${authorName}`);
+}
+
+function updateButtonStatus(postAuthorName) {
+    console.log(`Comparing post author name ${postAuthorName} against logged in user name - ${loggedInUserFullName}`);
+    if (loggedInUserFullName != postAuthorName) {
+        console.log("Not the same user - disabling the update & delete button");
+        $('#updatePost').attr('disabled', 'disabled');
+        $('#deletePost').attr('disabled', 'disabled');
+        $('#title').attr('disabled', 'disabled');
+        $('#mt-editor').attr('disabled', 'disabled');
+        $('#updatePost').addClass('inactiveButton');
+        $('#deletePost').addClass('inactiveButton');
+    }
 }
 
 function displayComments() {
@@ -82,7 +101,7 @@ function populateCommentSection(data) {
         let commentArray = data.comments;
         for (let i = 0; i < numberOfComments; i++) {
             let commentInfo = commentArray[i];
-            allComments += returnIndividualComment(commentInfo.content);
+            allComments += returnIndividualComment(commentInfo.content, commentInfo.user);
         }
         allComments += createAddCommentBox();
     }
@@ -93,9 +112,10 @@ function populateCommentSection(data) {
  * returns the pre-populated comment 
  * @param {*} commentContent 
  */
-function returnIndividualComment(commentContent) {
+function returnIndividualComment(commentContent, userName) {
     let returnHTML = `<div class="comment_log colm-4 border">`
         + `<span class="comment">${commentContent}</span>`
+        + `<span class="user"><i class="fa fa-user-circle-o" aria-hidden="true"></i> ${userName}</span>`
         + `</div>`;
     return returnHTML;
 }
@@ -142,16 +162,56 @@ function postNewComment(commentInfo) {
     });
 }
 
+function getUserName(email) {
+    $.ajax({
+        url: '/api/users/' + email,
+        dataType: 'json',
+        type: 'get',
+        contentType: 'application/json',
+        processData: false,
+        success: function (data, textStatus, jQxhr) {
+            // get the full name & store it locally
+            loggedInUserFullName = `${data.firstName} ${data.lastName}`;
+            console.log(`Waiting for user ${loggedInUserEmail} (${loggedInUserFullName}) to update post or give comment`);
+        },
+        error: function (jqXhr, textStatus, errorThrown) {
+            console.log(errorThrown);
+        }
+    });
+}
+
+/**
+ * When delete button is clicked
+ */
+function handleDeletePost() {
+    $('#deletePost').click(function () {
+        $.ajax({
+            url: '/api/forums/' + forumId,
+            dataType: 'json',
+            type: 'DELETE',
+            contentType: 'application/json',
+            processData: false,
+            success: function (data, textStatus, jQxhr) {
+                window.location = "/forum.html";
+            },
+            error: function (jqXhr, textStatus, errorThrown) {
+                console.log(errorThrown);
+            }
+        });
+    });
+}
+
 /** 
  * The main function used to handle user login, new post creation,
  * display forum feed and update on existing post
  */
 $(function app_main() {
     loggedInUserEmail = localStorage.getItem("loggedInUserEmail");
+    getUserName(loggedInUserEmail);
     forumId = localStorage.getItem("forumId");
-    console.log(`Waiting for user ${loggedInUserEmail} to update post or give comment`);
     showExistingPost();
     handleUpdatePost();
     displayComments();
     handlePostComment();
+    handleDeletePost();
 });

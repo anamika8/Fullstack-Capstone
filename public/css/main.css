@@ -1,8 +1,6 @@
-/* Note the 3 values after padding: 
-in order, they set the top, left and right, and bottom sizes. 
-You will see this format used in a few more places. */
+
 body {
- 
+
   font-family: "Roboto", helvetica, sans-serif;
   padding: 5px 0 0;
   margin: 0;
@@ -11,6 +9,13 @@ body {
 
 body * {
   box-sizing: border-box;
+  
+}
+
+html {
+background-image: url("mt-background-com.jpg");
+background-repeat : no-repeat;
+background-size : cover;
 }
 
 .js-container {
@@ -71,4 +76,105 @@ body * {
   transition: background 0.1s;
 }
 
+.footer {
+  text-align: center;
+  color: #696969;
+  margin: 20px auto;
+  border: 0;
+  padding: 0;
+  font-weight: 550;
+}
 
+
+@media only screen and (max-width: 380px) {
+
+  body {
+  font-size: 10px;
+}
+
+.logo {
+  width: auto;
+  height: 180px;
+}
+
+.app-first-page h2 {
+  width: 100%;
+  line-height: 23px;
+  font-size: 20px;
+}
+
+.app-first-page p {
+  font-size: 15px;
+  text-align: center;
+  font-weight: 400;
+}
+
+.button-container button {
+  display: block;
+  width: 35%;
+  height: auto;
+  font-size: 13px;
+}
+
+}
+
+@media only screen and (max-width: 414px) and (min-width: 400px){
+
+  body {
+  font-size: 15px;
+}
+
+.logo {
+  width: auto;
+  height: 180px;
+}
+
+.app-first-page h2 {
+  width: 100%;
+  line-height: 23px;
+  font-size: 25px;
+}
+
+.app-first-page p {
+  font-size: 18px;
+  text-align: center;
+  font-weight: 400;
+}
+
+.button-container button {
+  display: block;
+  width: 30%;
+  height: auto;
+  font-size: 15px;
+}
+
+}
+
+@media only screen and (max-width: 1030px) and (min-width: 765px){
+
+  body {
+  font-size: 20px;
+}
+
+.app-first-page p {
+  font-size: 28px;
+  text-align: center;
+  font-weight: 400;
+   margin-bottom: 10px;
+}
+
+.button-container button {
+  display: block;
+  width: 40%;
+  height: auto;
+  font-size: 25px;
+ 
+}
+
+html {
+background-image: url("mt-background-ipod.jpg");
+background-repeat : no-repeat;
+background-size : cover;
+}
+
+}

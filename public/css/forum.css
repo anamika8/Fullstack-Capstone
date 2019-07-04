@@ -200,6 +200,85 @@ span.result {
   
 }
 
+.footer {
+  color:	#484848;
+  margin: 10px auto;
+  border: 0;
+  padding: 0;
+  display: block;
+  float: right;
+  margin-right: 5%;
+  font-size: 15px;
+}
+
+@media only screen and (max-width: 325px) {
+#search {
+  font-weight: 600;
+  font-size:11px;
+}
+
+body {
+  font-size: 13px;
+}
+
+span.result {
+    font-size: 0.8rem;
+}
+
+.pages-button {
+  font-size: 14px;
+}
+
+.more-details {
+    font-size: 0.8rem;   
+}
+
+.footer {
+  font-size: 11px;
+}
+
+}
+
+@media only screen and (max-width: 380px) and (min-width: 330px) {
+
+#search {
+  font-weight: 600;
+  font-size:11px;
+}
+
+}
+
+@media only screen and (max-width: 1030px) and (min-width: 765px){
+
+#search {
+  font-weight: 600;
+  font-size:18px;
+}
+
+body {
+  font-size: 25px;
+}
+
+.logo {
+  width: auto;
+  height: 220px;
+}
+
+span.result {
+    font-size: 1.5rem; 
+}
+
+.pages-button {
+  font-size: 24px;
+}
+
+.more-details {
+    font-size: 1.6rem;
+    
+}
+
+
+}
     
 
 

@@ -114,5 +114,74 @@ button[type="submit"]:focus {
   -moz-transition: background 0.1s;
   -o-transition: background 0.1s;
   transition: background 0.1s;
-}*/
+}
 
+@media only screen and (max-width: 380px) {
+
+.logo {
+  width: auto;
+  height: 160px;
+}
+
+textarea {
+    width: 300px; 
+    height: 150px;
+}
+.view-pg-title {
+    font-size: 20px;
+}
+
+button {
+    font-size: 18px;
+}
+
+}
+
+@media only screen and (max-width: 414px) and (min-width: 400px){
+
+.logo {
+  width: auto;
+  height: 160px;
+}
+
+textarea {
+    width: 350px; 
+    height: 150px;
+}
+.view-pg-title {
+    font-size: 23px;
+}
+
+button {
+    font-size: 20px;
+}
+
+}
+
+@media only screen and (max-width: 1030px) and (min-width: 765px){
+
+body {
+  font-size: 25px;
+}
+
+.logo {
+  width: auto;
+  height: 200px;
+}
+
+.view-pg-title {
+    font-size: 30px;
+}
+textarea {
+    width: 730px; 
+    height: 185px;
+}
+
+button {
+    font-size: 25px;
+    width: 25%;
+    height: 40px;
+    font-size: 25px;
+}
+
+}

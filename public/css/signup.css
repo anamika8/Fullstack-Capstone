@@ -149,3 +149,85 @@ button[type="submit"]:focus {
 .footer a:hover {
   color: darkblue;  
 }
+
+@media only screen and (max-width: 380px) {
+
+body {
+  font-size: 14px;
+}
+
+.logo {
+  width: auto;
+  height: 160px;
+}
+
+.signup-form {
+  width: 270px;
+
+}
+
+.signup-form legend {
+  font-size: 25px;
+}
+
+}
+
+@media only screen and (max-width: 414px) and (min-width: 400px){
+
+body {
+  font-size: 15px;
+}
+
+.logo {
+  width: auto;
+  height: 160px;
+}
+
+.signup-form {
+  width: 280px;
+
+}
+
+.signup-form legend {
+  font-size: 26px;
+}
+
+}
+
+
+@media only screen and (max-width: 1030px) and (min-width: 765px){
+
+body {
+  font-size: 25px;
+}
+
+.logo {
+  width: auto;
+  height: 200px;
+}
+
+.signup-form {
+  width: 500px;
+
+}
+
+.signup-form legend {
+  font-size: 35px;
+}
+
+input[type="email"],
+input[type="password"],
+button[type="submit"] {
+  width: 100%;
+  height: auto;
+  font-size: 22px;
+ 
+}
+
+button[type="submit"] {
+  height: auto;
+  font-size: 30px;
+}
+
+}
+

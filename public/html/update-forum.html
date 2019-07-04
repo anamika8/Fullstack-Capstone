@@ -37,17 +37,28 @@
 
         <form action="/query" method="post" id="query-form">
             <p><input type="text" name="title" id="title" placeholder="Title"></p>
-            <p><textarea name="content" id="mt-editor" placeholder="Content"></textarea></p>
-            <p><button type="submit" name="submit">Update</button></p>
+            <div id="content-section colm-4">
+                <p><textarea name="content" id="mt-editor" placeholder="Content"></textarea></p>
+                <span id="user-info"><i class="fa fa-user-circle-o" aria-hidden="true"></i> User: Test Mommy</span>
+            </div>
+            <br>
+            <div id="outer">
+                <div class="inner"><button type="submit" name="submit" id="updatePost">Update</button></div>
+                <div class="inner"><button type="button" name="submit" id="deletePost">Delete</button></div>
+            </div>
         </form>
 
         <div class="rows" id="all-comment">
             <div class="comment_log colm-4 border" id="defaultCommentBox">
                 <input type="text" class="colm-4" id="newComment" placeholder="Write your comment" maxlength="60">
+                <span class="user"><i class="fa fa-user-circle-o" aria-hidden="true"></i> User: Test Mommy</span>
             </div>
         </div>
-
     </main>
+    <footer role="contentinfo" class="footer">
+        © 2019 created by Anamika
+    </footer>
+
     <script src="updatePost.js"></script>
     <script src="https://use.fontawesome.com/3a36aded45.js"></script>
 </body>
