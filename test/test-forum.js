@@ -215,7 +215,7 @@ describe("Forum endpoints", function() {
           return Forum.findById(updateData.id);
         })
         .then(function(forum) {
-          expect(forum.name).to.equal(updateData.name);
+          expect(forum.title).to.equal(updateData.title);
           expect(forum.content).to.equal(updateData.content);
         });
     });
